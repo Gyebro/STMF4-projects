@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/ID:\git\STMF4-projects\GY45_ST\components\coocox-master\STM32F429xx_cmsisboot /ID:\git\STMF4-projects\GY45_ST /ID:\git\STMF4-projects\GY45_ST\components\coocox-master\STM32F429xx_cmsisboot\source\Hal /ID:\git\STMF4-projects\GY45_ST\components\coocox-master /ID:\git\STMF4-projects\GY45_ST\components\coocox-master\STM32F429xx_cmsisboot\source /ID:\git\STMF4-projects\GY45_ST\components\coocox-master\cmsis_core /ID:\git\STMF4-projects\GY45_ST\components\coocox-master\cmsis_core\source">
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_spi.h" lastModified="14c93fe758a">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma.h" lastModified="14c93fe75ab">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_uart.c" lastModified="14c93fe7411">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma2d.h" lastModified="14c93fe752e">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.c" lastModified="14c93fe760d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma.c" lastModified="14c93fe75d0">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_spi.c" lastModified="14c93fe73e4">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma2d.c" lastModified="14c93fe75ec">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h" lastModified="14c93fe76bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash.h" lastModified="14c93fe74d9">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ex.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ramfunc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.c" lastModified="14c93fe76ab">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash.c" lastModified="14c93fe74c9">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cmFunc.h" lastModified="14c93fe3215">
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_usart.h" lastModified="14c93fe7575">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c_ex.h" lastModified="14c93fe7421">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_sdmmc.h" lastModified="14c93fe7644">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\startup_stm32f429xx.S" lastModified="14c93fe7430">
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_usart.c" lastModified="14c93fe7585">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_sdmmc.c" lastModified="14c93fe758f">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c_ex.c" lastModified="14c93fe73f4">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_irda.h" lastModified="14c93fe7401">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\system_stm32f4xx.h" lastModified="14c93fe74c9">
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_irda.c" lastModified="14c93fe76cb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dcmi.h" lastModified="14c93fe76ba">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_ltdc.h" lastModified="14c93fe74b8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\system_stm32f4xx.c" lastModified="14c93fe74f8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dcmi.c" lastModified="14c93fe76b1">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_ltdc.c" lastModified="14c93fe73ed">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_wwdg.h" lastModified="14c93fe7593">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pccard.h" lastModified="14c93fe753e">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rng.h" lastModified="14c93fe75fd">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_wwdg.c" lastModified="14c93fe759b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pccard.c" lastModified="14c93fe752e">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rng.c" lastModified="14c93fe7649">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sram.h" lastModified="14c93fe759b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_crc.h" lastModified="14c93fe7662">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp.h" lastModified="14c93fe7411">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_usb.h" lastModified="14c93fe761c">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sram.c" lastModified="14c93fe759b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio_ex.h" lastModified="14c93fe73cb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ramfunc.h" lastModified="14c93fe74f8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.h" lastModified="14c93fe75ee">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nand.h" lastModified="14c93fe73cb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp.c" lastModified="14c93fe7496">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_crc.c" lastModified="14c93fe7693">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_usb.c" lastModified="14c93fe7636">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ramfunc.c" lastModified="14c93fe74c8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.c" lastModified="14c93fe761c">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac_ex.h" lastModified="14c93fe763a">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nand.c" lastModified="14c93fe73ac">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cmInstr.h" lastModified="14c93fe31e8">
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr_ex.h" lastModified="14c93fe762c">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_smartcard.h" lastModified="14c93fe73bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac_ex.c" lastModified="14c93fe760d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr_ex.c" lastModified="14c93fe753e">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash.h" lastModified="14c93fe7681">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_smartcard.c" lastModified="14c93fe7430">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash.c" lastModified="14c93fe7662">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd.h" lastModified="14c93fe754d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_usb.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_msp_template.c" lastModified="14c93fe74c6">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd.c" lastModified="14c93fe752e">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cm4_simd.h" lastModified="14c93fe31fe">
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c.h" lastModified="14c93fe769b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc_ex.h" lastModified="14c93fe760d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc_ex.h" lastModified="14c93fe7430">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr.h" lastModified="14c93fe74c9">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_can.h" lastModified="14c93fe7451">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c.c" lastModified="14c93fe7672">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc_ex.c" lastModified="14c93fe75ee">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc.h" lastModified="14c93fe754d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc_ex.c" lastModified="14c93fe7466">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_can.c" lastModified="14c93fe7486">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr.c" lastModified="14c93fe7597">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc_ex.h" lastModified="14c93fe75bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sd.h" lastModified="14c93fe750d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_sdmmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim.h" lastModified="14c93fe74f8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc.c" lastModified="14c93fe756d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc_ex.c" lastModified="14c93fe75d8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sd.c" lastModified="14c93fe74e8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim.c" lastModified="14c93fe7528">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h" lastModified="14c93fe74b2">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp_ex.h" lastModified="14c93fe754d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.c" lastModified="14c93fe7486">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ex.h" lastModified="14c93fe761c">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp_ex.c" lastModified="14c93fe754d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h" lastModified="14c93fe7650">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_conf.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sai.h" lastModified="14c93fe7401">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s_ex.h" lastModified="14c93fe769d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash_ex.c" lastModified="14c93fe75e0">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac.h" lastModified="14c93fe7467">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.c" lastModified="14c93fe7652">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sai.c" lastModified="14c93fe73fd">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s_ex.c" lastModified="14c93fe7496">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h" lastModified="14c93fe7511">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nor.h" lastModified="14c93fe74a8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fsmc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac.c" lastModified="14c93fe744a">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nor.c" lastModified="14c93fe7476">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sdram.h" lastModified="14c93fe73bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\stm32f4xx.h" lastModified="14c93fe9bbb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\stm32f429xx.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sdram.c" lastModified="14c93fe73cb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cm4.h" lastModified="14c93fe2df3">
+         <include file="..\..\..\components\coocox-master\cmsis_core\source\core_cmInstr.h"/>
+         <include file="..\..\..\components\coocox-master\cmsis_core\source\core_cmFunc.h"/>
+         <include file="..\..\..\components\coocox-master\cmsis_core\source\core_cm4_simd.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.h" lastModified="14c93fe7652">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.c" lastModified="14c93fe764d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd_ex.h" lastModified="14c93fe75ca">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\stm32f429xx.h" lastModified="14c93fe79e5">
+         <include file="..\..\..\components\coocox-master\cmsis_core\source\core_cm4.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\system_stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.h" lastModified="14c93fe7476">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd_ex.c" lastModified="14c93fe75bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.c" lastModified="14c93fe74c4">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma_ex.h" lastModified="14c93fe7681">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_conf.h" lastModified="14c93fe76b6">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rcc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cortex.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_adc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_can.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_crc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_cryp.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma2d.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dac.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dcmi.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_eth.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_flash.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sram.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nor.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_nand.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pccard.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sdram.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2c.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_ltdc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pwr.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rng.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_rtc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sai.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_sd.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_spi.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_uart.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_usart.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_irda.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_smartcard.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_wwdg.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_pcd.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hcd.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash_ex.h" lastModified="14c93fe74c9">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_dma_ex.c" lastModified="14c93fe7681">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.h" lastModified="14c93fe7652">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hash_ex.c" lastModified="14c93fe74f8">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hcd.h" lastModified="14c93fe763d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_usb.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.h" lastModified="14c93fe745b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_gpio.c" lastModified="14c93fe7681">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_hcd.c" lastModified="14c93fe75bb">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_ll_fmc.c" lastModified="14c93fe7442">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim_ex.h" lastModified="14c93fe759b">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s.h" lastModified="14c93fe755d">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s_ex.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_tim_ex.c" lastModified="14c93fe75ab">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_i2s.c" lastModified="14c93fe7421">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_uart.h" lastModified="14c93fe7421">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+      <source file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_iwdg.h" lastModified="14c93fe75e4">
+         <include file="..\..\..\components\coocox-master\STM32F429xx_cmsisboot\source\Hal\stm32f4xx_hal_def.h"/>
+      </source>
+   </includePath>
+</dependencies>
