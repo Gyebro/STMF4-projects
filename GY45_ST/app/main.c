@@ -14,6 +14,7 @@
 
 #include "stm32f4xx_gpio_utils.h"
 #include "stm32f4xx_usart_utils.h"
+#include "stm32f4xx_i2c_utils.h"
 
 
 #define MMA8452_ADDRESS 0x1C  // 0x1D if SA0 is high, 0x1C if low
@@ -131,24 +132,28 @@ int main(void) {
 	GPIO_Initialize(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FAST);
 	// Initialize button pin PA0
 	GPIO_Initialize(GPIOA, GPIO_PIN_0, GPIO_MODE_INPUT, GPIO_PULLDOWN, GPIO_SPEED_FAST);
+	// Turn on RED led
+	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_SET);
 
 	// Initialize USART1
-	USART_HandleTypeDef husart1 = USART_Initialize(USART1, 9600);
-	USART_PutChar(&husart1,'A');
+	USART_HandleTypeDef husart1 = USART_Initialize(USART1, 115200);
 
-    //Wire.begin(); // Join the bus as a master
-    initMMA8452(); // Test and initialize the MMA8452
+	// Initialize I2C
+	I2C_HandleTypeDef hi2c1 = I2C_Initialize(I2C1, 50000);
 
-    //volatile int i;
+    //initMMA8452(); // Test and initialize the MMA8452
+	uint8_t whoami;
+	// Toggle RED and GREEN
+    HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_14 | GPIO_PIN_13);
+	USART_PutString(&husart1, "Init complete!\n");
+
+    volatile int i;
     while (1) {
 
-    	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
-    		HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, GPIO_PIN_SET);
-    		HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_RESET);
-    	} else {
-    		HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_SET);
-    		HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, GPIO_PIN_RESET);
-    	}
+    	for (i=0; i<200000; i++) {}
+    	HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13 | GPIO_PIN_14);
+    	whoami = I2C_Read(&hi2c1, MMA8452_ADDRESS, WHO_AM_I);
+    	USART_PutChar(&husart1, whoami+65);
 
 		// Read accelero data
 		//int accelCount[3];  // Stores the 12-bit signed value

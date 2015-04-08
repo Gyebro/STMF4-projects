@@ -1,7 +1,7 @@
 #include "stm32f4xx_gpio_utils.h"
 
-void GPIO_Initialize(GPIO_TypeDef * GPIO_T, uint32_t PIN, uint32_t MODE, uint32_t PULL, uint32_t SPEED) {
-	switch ((int)GPIO_T) {
+void GPIO_Initialize(GPIO_TypeDef * GPIOX, uint32_t PIN, uint32_t MODE, uint32_t PULL, uint32_t SPEED) {
+	switch ((int)GPIOX) {
 	case (int)GPIOA:
 		__GPIOA_CLK_ENABLE();
 		break;
@@ -29,11 +29,11 @@ void GPIO_Initialize(GPIO_TypeDef * GPIO_T, uint32_t PIN, uint32_t MODE, uint32_
 	GPIO_Init.Mode = MODE;
 	GPIO_Init.Pull = PULL;
 	GPIO_Init.Speed = SPEED;
-	HAL_GPIO_Init(GPIO_T, &GPIO_Init);
+	HAL_GPIO_Init(GPIOX, &GPIO_Init);
 }
 
-void GPIO_Alt_Initialize(GPIO_TypeDef * GPIO_T, uint32_t PIN, uint32_t MODE, uint32_t PULL, uint32_t SPEED, uint32_t ALTERNATE) {
-	switch ((int)GPIO_T) {
+void GPIO_Alt_Initialize(GPIO_TypeDef * GPIOX, uint32_t PIN, uint32_t MODE, uint32_t PULL, uint32_t SPEED, uint32_t ALTERNATE) {
+	switch ((int)GPIOX) {
 	case (int)GPIOA:
 		__GPIOA_CLK_ENABLE();
 		break;
@@ -62,5 +62,5 @@ void GPIO_Alt_Initialize(GPIO_TypeDef * GPIO_T, uint32_t PIN, uint32_t MODE, uin
 	GPIO_Init.Pull = PULL;
 	GPIO_Init.Speed = SPEED;
 	GPIO_Init.Alternate = ALTERNATE;
-	HAL_GPIO_Init(GPIO_T, &GPIO_Init);
+	HAL_GPIO_Init(GPIOX, &GPIO_Init);
 }
