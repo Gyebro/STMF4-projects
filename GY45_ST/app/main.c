@@ -10,29 +10,10 @@
  *    SCL ----------------------- PA8 (Orange, I2C clock)
  *    GND ----------------------- GND (Black)
  */
-#include "stm32f4xx.h"
-
-// This project uses the new HAL driveris
-#include "stm32f4xx_hal_rcc.h"
-#include "stm32f4xx_hal_gpio.h"
 
 
-
-/*
- MMA8452Q Basic Example Code
- Nathan Seidle
- SparkFun Electronics
- November 5, 2012
-
- License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
-
- This example code shows how to read the X/Y/Z accelerations and basic functions of the MMA5842. It leaves out
- all the neat features this IC is capable of (tap, orientation, and inerrupts) and just displays X/Y/Z. See
- the advanced example code to see more features.
-
-
-
- */
+#include "stm32f4xx_gpio_utils.h"
+#include "stm32f4xx_usart_utils.h"
 
 
 #define MMA8452_ADDRESS 0x1C  // 0x1D if SA0 is high, 0x1C if low
@@ -145,33 +126,20 @@ void writeRegister(short addressToWrite, short dataToWrite) {
 
 
 int main(void) {
-	// Enable clock for GPIO G
-	__GPIOG_CLK_ENABLE();
-	__GPIOA_CLK_ENABLE();
 
-	// Configure pin for LEDS
-    GPIO_InitTypeDef GPIO_InitDef;
-    GPIO_InitDef.Pin = GPIO_PIN_13 | GPIO_PIN_14; // Pins 13 AND 14
-    GPIO_InitDef.Mode = GPIO_MODE_OUTPUT_PP; // Output, Push-Pull
-    GPIO_InitDef.Pull = GPIO_NOPULL; // No Pull-up or Pull-down
-    GPIO_InitDef.Speed = GPIO_SPEED_FAST; // Fast speed
+	// Initialize Led pin PG13 and PG14
+	GPIO_Initialize(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FAST);
+	// Initialize button pin PA0
+	GPIO_Initialize(GPIOA, GPIO_PIN_0, GPIO_MODE_INPUT, GPIO_PULLDOWN, GPIO_SPEED_FAST);
 
-    // Configure PA0 for Button
-    GPIO_InitTypeDef GPIO_ButtonDef;
-    GPIO_ButtonDef.Pin = GPIO_PIN_0;
-    GPIO_ButtonDef.Mode = GPIO_MODE_INPUT;
-    GPIO_ButtonDef.Pull = GPIO_PULLDOWN;
-    GPIO_ButtonDef.Speed = GPIO_SPEED_FAST;
-
-    //Initialize pins
-    HAL_GPIO_Init(GPIOG, &GPIO_InitDef);
-    HAL_GPIO_Init(GPIOA, &GPIO_ButtonDef);
+	// Initialize USART1
+	USART_HandleTypeDef husart1 = USART_Initialize(USART1, 9600);
+	USART_PutChar(&husart1,'A');
 
     //Wire.begin(); // Join the bus as a master
     initMMA8452(); // Test and initialize the MMA8452
 
-
-    volatile int i;
+    //volatile int i;
     while (1) {
 
     	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
@@ -183,10 +151,10 @@ int main(void) {
     	}
 
 		// Read accelero data
-		int accelCount[3];  // Stores the 12-bit signed value
-		readAccelData(accelCount);  // Read the x/y/z adc values
+		//int accelCount[3];  // Stores the 12-bit signed value
+		//readAccelData(accelCount);  // Read the x/y/z adc values
 		// Now we'll calculate the accleration value into actual g's
-		float accelG[3];  // Stores the real accel value in g's
+		//float accelG[3];  // Stores the real accel value in g's
 		//for (int i = 0 ; i < 3 ; i++) { accelG[i] = (float) accelCount[i] / ((1<<12)/(2*GSCALE)); }
     }
 }
