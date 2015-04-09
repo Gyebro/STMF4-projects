@@ -43,6 +43,8 @@ void setup()
   Wire.begin(); //Join the bus as a master
 
   initMMA8452(); //Test and intialize the MMA8452
+  
+  while(1);
 }
 
 void loop()
@@ -97,6 +99,7 @@ void readAccelData(int *destination)
 void initMMA8452()
 {
   byte c = readRegister(WHO_AM_I);  // Read WHO_AM_I register
+  Serial.println(c, HEX);
   if (c == 0x2A) // WHO_AM_I should always be 0x2A
   {  
     Serial.println("MMA8452Q is online...");
@@ -114,6 +117,8 @@ void initMMA8452()
   byte fsr = GSCALE;
   if(fsr > 8) fsr = 8; //Easy error check
   fsr >>= 2; // Neat trick, see page 22. 00 = 2G, 01 = 4A, 10 = 8G
+  Serial.println("Setup: range");
+  Serial.println(fsr, HEX);
   writeRegister(XYZ_DATA_CFG, fsr);
 
   //The default data rate is 800Hz and we don't modify it in this example code
@@ -125,6 +130,9 @@ void initMMA8452()
 void MMA8452Standby()
 {
   byte c = readRegister(CTRL_REG1);
+  Serial.println("Control: standby");
+  Serial.println(c, HEX);
+  Serial.println(c & ~(0x01), HEX);
   writeRegister(CTRL_REG1, c & ~(0x01)); //Clear the active bit to go into standby
 }
 
@@ -132,6 +140,9 @@ void MMA8452Standby()
 void MMA8452Active()
 {
   byte c = readRegister(CTRL_REG1);
+  Serial.println("Control: standby");
+  Serial.println(c, HEX);
+  Serial.println(c | 0x01, HEX);
   writeRegister(CTRL_REG1, c | 0x01); //Set the active bit to begin detection
 }
 

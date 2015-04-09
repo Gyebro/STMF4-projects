@@ -135,7 +135,7 @@ int main(void) {
 	// Turn on RED led
 	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_SET);
 
-	// Initialize USART1
+	// Initialize USART1 (PA9 - RX, PA10 - TX)
 	USART_HandleTypeDef husart1 = USART_Initialize(USART1, 115200);
 
 	// Initialize I2C
@@ -145,15 +145,31 @@ int main(void) {
 	uint8_t whoami;
 	// Toggle RED and GREEN
     HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_14 | GPIO_PIN_13);
-	USART_PutString(&husart1, "Init complete!\n");
+	USART_PutString(&husart1, "Init complete");
+
+	whoami = I2C_ReadByte(&hi2c1, ((MMA8452_ADDRESS << 1) | 0x01), WHO_AM_I);
+	USART_PutChar(&husart1, whoami);
+	whoami = I2C_ReadByte(&hi2c1, (MMA8452_ADDRESS << 1), WHO_AM_I);
+	USART_PutChar(&husart1, whoami);
+	whoami = I2C_ReadByte(&hi2c1, 0, WHO_AM_I);
+	USART_PutChar(&husart1, whoami);
+
+	/*uint8_t data[] = {0, 0, 0, 0, 0, 0};
+	I2C_ReadBytes(&hi2c1, ((MMA8452_ADDRESS << 1) | 0x01), WHO_AM_I, data, 6);
+	USART_PutChar(&husart1, data[0]);
+	USART_PutChar(&husart1, data[1]);
+	USART_PutChar(&husart1, data[2]);
+	USART_PutChar(&husart1, data[3]);
+	USART_PutChar(&husart1, data[4]);
+	USART_PutChar(&husart1, data[5]);*/
 
     volatile int i;
     while (1) {
 
     	for (i=0; i<200000; i++) {}
     	HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13 | GPIO_PIN_14);
-    	whoami = I2C_Read(&hi2c1, MMA8452_ADDRESS, WHO_AM_I);
-    	USART_PutChar(&husart1, whoami+65);
+    	//whoami = I2C_ReadByte(&hi2c1, (MMA8452_ADDRESS << 1), WHO_AM_I);
+    	//USART_PutChar(&husart1, whoami);
 
 		// Read accelero data
 		//int accelCount[3];  // Stores the 12-bit signed value

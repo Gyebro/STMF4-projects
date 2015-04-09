@@ -26,21 +26,26 @@ I2C_HandleTypeDef I2C_Initialize(I2C_TypeDef* I2CX, uint32_t CLOCKSPEED) {
 	return I2C_handle;
 }
 
-uint8_t I2C_Read(I2C_HandleTypeDef* HI2C, uint8_t ADDR, uint8_t REG) {
-	uint8_t REC = 0;
-
-	// Transmit the register address
-	HAL_I2C_Master_Transmit(HI2C, ADDR, &REG, 1, CONFIG_I2C_TIMEOUT);
+uint8_t I2C_ReadByte(I2C_HandleTypeDef* HI2C, uint8_t ADDR, uint8_t REG) {
+	uint8_t REC = 1;
 	if(HAL_OK == HAL_I2C_IsDeviceReady(HI2C, ADDR, CONFIG_I2C_TRIALS, CONFIG_I2C_TIMEOUT)) {
+		// Transmit the register address
+		HAL_I2C_Master_Transmit(HI2C, ADDR, &REG, 1, CONFIG_I2C_TIMEOUT);
 		// Receive the value
 		HAL_I2C_Master_Receive(HI2C, ADDR, &REC, 1, CONFIG_I2C_TIMEOUT);
 	}
-
 	return REC;
 }
 
-/* PRIVATE FUNCTIONS */
-
-void I2C_Start() {
-
+void I2C_ReadBytes(I2C_HandleTypeDef* HI2C, uint8_t ADDR, uint8_t REG, uint8_t *DATA, uint16_t COUNT) {
+	if(HAL_OK == HAL_I2C_IsDeviceReady(HI2C, ADDR, CONFIG_I2C_TRIALS, CONFIG_I2C_TIMEOUT)) {
+		// Transmit the register address
+		HAL_I2C_Master_Transmit(HI2C, ADDR, &REG, 1, CONFIG_I2C_TIMEOUT);
+		if(HAL_OK == HAL_I2C_IsDeviceReady(HI2C, ADDR, CONFIG_I2C_TRIALS, CONFIG_I2C_TIMEOUT)) {
+			// Receive the value
+			HAL_I2C_Master_Receive(HI2C, ADDR, DATA, COUNT, CONFIG_I2C_TIMEOUT);
+		}
+	}
+	return;
 }
+
