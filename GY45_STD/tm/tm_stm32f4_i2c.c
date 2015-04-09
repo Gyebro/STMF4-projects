@@ -109,7 +109,7 @@ uint8_t TM_I2C_Read(I2C_TypeDef* I2Cx, uint8_t address, uint8_t reg) {
 	uint8_t received_data;
 	TM_I2C_Start(I2Cx, address, I2C_TRANSMITTER_MODE, I2C_ACK_DISABLE);
 	TM_I2C_WriteData(I2Cx, reg);
-	TM_I2C_Stop(I2Cx);
+	//TM_I2C_Stop(I2Cx);
 	TM_I2C_Start(I2Cx, address, I2C_RECEIVER_MODE, I2C_ACK_DISABLE);
 	received_data = TM_I2C_ReadNack(I2Cx);
 	return received_data;
