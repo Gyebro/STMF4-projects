@@ -14,13 +14,28 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/git/STMF4-projects/GY45_STD/app/main.c" title="main.c" tooltip="D:/git/STMF4-projects/GY45_STD/app/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/git/STMF4-projects/GY45_STD/app/main.c" title="main.c" tooltip="D:/git/STMF4-projects/GY45_STD/app/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GY45_STD/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1270" selectionTopPixel="906"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1859" selectionTopPixel="1416"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mma845x_utils.h" partName="mma845x_utils.h" path="D:/git/STMF4-projects/GY45_STD/app/mma845x_utils.h" title="mma845x_utils.h" tooltip="D:/git/STMF4-projects/GY45_STD/app/mma845x_utils.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GY45_STD/mma845x_utils.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1076" selectionTopPixel="431"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="mma845x_utils.c" partName="mma845x_utils.c" path="D:/git/STMF4-projects/GY45_STD/app/mma845x_utils.c" title="mma845x_utils.c" tooltip="D:/git/STMF4-projects/GY45_STD/app/mma845x_utils.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GY45_STD/mma845x_utils.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1348" selectionTopPixel="743"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" partName="startup_stm32f4xx.c" path="D:/git/STMF4-projects/GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c" title="startup_stm32f4xx.c" tooltip="D:/git/STMF4-projects/GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15916" selectionTopPixel="6720"/>
 </editor>
 </editors>
 <views>
@@ -30,6 +45,9 @@
 <element path="/GY45_STD"/>
 <element path="/GY45_STD/tm"/>
 </expanded>
+<selection>
+<element path="/GY45_STD"/>
+</selection>
 </viewState>
 </view>
 <view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting">
@@ -70,15 +88,15 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
+<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <view id="org.coocox.component.ui.view.ComponentView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -98,7 +116,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e058d1" ratio="0.7121535" ratioLeft="668" ratioRight="270" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1ac038e">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e058d1" ratio="0.6812367" ratioLeft="639" ratioRight="299" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1ac038e">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -106,7 +124,7 @@
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.22293676" ratioLeft="208" ratioRight="725" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1ac038e"/>
+<info part="org.eclipse.ui.editorss" ratio="0.2636656" ratioLeft="246" ratioRight="687" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1ac038e"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d887f" ratio="0.71983916" ratioLeft="1074" ratioRight="418" relationship="2" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
@@ -159,8 +177,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.coocox.codebugger.trace.ui.traceview"/>
@@ -217,7 +235,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.17669654" ratioLeft="276" ratioRight="1286" relationship="2" relative="org.eclipse.ui.internal.ViewStack@162c35"/>
+<info part="org.eclipse.ui.editorss" ratio="0.20900321" ratioLeft="195" ratioRight="738" relationship="2" relative="org.eclipse.ui.internal.ViewStack@162c35"/>
 </mainWindow>
 </layout>
 </perspective>
@@ -226,160 +244,157 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/tm/tm_stm32f4_mpu6050.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/tm/tm_stm32f4_i2c.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/tm/tm_stm32f4_mpu6050.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/tm/tm_stm32f4_delay.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/GY45_STD/mma845x_utils.c"/>
 </editors>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1678" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="3444" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1859" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1321" y="361"/>
+<position info="not_deleted" x="1902" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1245" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
+<position info="not_deleted" x="2259" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.h" index="3">
-<position/>
+<position info="not_deleted" x="1859" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.h" index="3">
-<position/>
+<position info="not_deleted" x="1902" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.h" index="3">
-<position/>
+<position info="not_deleted" x="2259" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1498" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.h" index="3">
-<position/>
+<position info="not_deleted" x="1859" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.h" index="3">
-<position info="not_deleted" x="2663" y="12"/>
+<position info="not_deleted" x="1902" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
+<position info="not_deleted" x="2259" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1252" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
+<position info="not_deleted" x="1859" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1245" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1540" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1540" y="0"/>
+<position info="not_deleted" x="1902" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1480" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position/>
+<position info="not_deleted" x="2259" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1476" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="3733" y="11"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="3935" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="3956" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="6253" y="12"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1494" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="6395" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1457" y="36"/>
-</item>
-<item historyLabel="tm_stm32f4_i2c.c" index="2">
-<position info="not_deleted" x="6395" y="0"/>
-</item>
-<item historyLabel="tm_stm32f4_mpu6050.c" index="1">
-<position info="not_deleted" x="1457" y="36"/>
+<position info="not_deleted" x="1859" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="704" y="0"/>
+<position info="not_deleted" x="1902" y="0"/>
 </item>
-<item historyLabel="tm_stm32f4_delay.c" index="4">
-<position info="not_deleted" x="1485" y="13"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2259" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="704" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1859" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1902" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2259" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1859" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1902" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1882" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2259" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1859" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1176" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1322" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1411" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1536" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1639" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1669" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1695" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1763" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1322" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1411" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1536" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1639" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1763" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1322" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1411" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1536" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1639" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1669" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1695" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1763" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1322" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1819" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1902" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2259" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1859" y="0"/>
+</item>
+<item historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1176" y="0"/>
+</item>
+<item active="true" historyLabel="mma845x_utils.c" index="1">
+<position info="not_deleted" x="1322" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -388,17 +403,26 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_delay.c" tooltip="GY45_STD/tm/tm_stm32f4_delay.c">
-<persistable path="/GY45_STD/tm/tm_stm32f4_delay.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c">
+<persistable path="/GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\4.9 2015q1\arm-none-eabi\include\stdio.h">
+<persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\4.9 2015q1\arm-none-eabi\include\stdio.h" project="GY45_STD"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_i2c.c" tooltip="GY45_STD/tm/tm_stm32f4_i2c.c">
 <persistable path="/GY45_STD/tm/tm_stm32f4_i2c.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mma845x_utils.c" tooltip="GY45_STD/mma845x_utils.c">
+<persistable path="/GY45_STD/mma845x_utils.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mma845x_utils.h" tooltip="GY45_STD/mma845x_utils.h">
+<persistable path="/GY45_STD/mma845x_utils.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_delay.c" tooltip="GY45_STD/tm/tm_stm32f4_delay.c">
+<persistable path="/GY45_STD/tm/tm_stm32f4_delay.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_mpu6050.h" tooltip="GY45_STD/tm/tm_stm32f4_mpu6050.h">
 <persistable path="/GY45_STD/tm/tm_stm32f4_mpu6050.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/GY45_STD/cmsis_boot/startup/startup_stm32f4xx.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_mpu6050.c" tooltip="GY45_STD/tm/tm_stm32f4_mpu6050.c">
 <persistable path="/GY45_STD/tm/tm_stm32f4_mpu6050.c"/>
@@ -420,15 +444,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_usart.c" tooltip="GY45_STD/tm/tm_stm32f4_usart.c">
 <persistable path="/GY45_STD/tm/tm_stm32f4_usart.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32f4_gpio.h" tooltip="GY45_STD/tm/tm_stm32f4_gpio.h">
-<persistable path="/GY45_STD/tm/tm_stm32f4_gpio.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_syscfg.c" tooltip="GY45_STD/cmsis_lib/source/stm32f4xx_syscfg.c">
-<persistable path="/GY45_STD/cmsis_lib/source/stm32f4xx_syscfg.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="GY45_STD/main.c">
-<persistable path="/GY45_STD/main.c"/>
 </file>
 </mruList>
 </workbench>

@@ -1,25 +1,38 @@
+/**
+ * GY45 (MMA845X breakout board) example
+ * Wiring
+ *
+ * GY45 ----------------- STM32F429-DISCO
+ * V_IN (red) ----------- 3V (right)
+ * GND (brown) ---------- GND
+ * SCL (orange) --------- PB6
+ * SDA (yellow) --------- PB7
+ *
+ * CP210X ----- STM32F429-DISCO
+ * RX --------- PA9
+ * TX --------- PA10
+ *
+ */
+
 
 /* Core modules */
 #include "stm32f4xx.h"
+
 /* TM libraries (http://stm32f4-discovery.com) */
 #include "defines.h"
 #include "tm_stm32f4_gpio.h"
 #include "tm_stm32f4_usart.h"
-#include "tm_stm32f4_i2c.h"
 #include "tm_stm32f4_delay.h"
 
-/* MMA address is 0x1D if SA0 is high, 0x1C if low */
-// Here the 0x1C must be shifted left, so it will be 0x38
-#define MMA_ADDRESS			0x38
-// Define a few of the MMA registers
-#define MMA_OUT_X_MSB		0x01
-#define MMA_XYZ_DATA_CFG	0x0E
-#define MMA_WHO_AM_I   		0x0D
-#define MMA_I_AM			0x2A
-#define MMA_CTRL_REG1  		0x2A
+/* STD C libs */
+//#include <stdio.h>
+
+/* MMA845X utility */
+#include "mma845x_utils.h"
 
 int main(void) {
-    volatile int i;
+    //char str[120];
+    int accelData[3];
 
     /* Initialize system */
     SystemInit();
@@ -34,34 +47,36 @@ int main(void) {
     /* Initialize USART1 at 115200 baud, TX: PA10, RX: PA9 */
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
 
-    /* Init I2C1 SCL: PB6 and SDA: PB7 */
-    TM_I2C_Init(I2C1, TM_I2C_PinsPack_1, 100000);
+    /* Initialize MMA845X */
+    uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_4G);
+    if (mma_status == MMA_OK) {
+    	TM_USART_Puts(USART1, "MMA initialized\n");
+    	TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
+    } else {
+    	TM_USART_Puts(USART1, "MMA initialization failed, error code: ");
+    	// Add 48 to the byte value to have character representation, (48 = '0')
+    	TM_USART_Putc(USART1, mma_status+48);
+    	TM_USART_Putc(USART1, '\n');
+    }
 
-    /* Check if device is connected */
-	if (!TM_I2C_IsDeviceConnected(I2C1, MMA_ADDRESS)) {
-		/* Return error */
-		TM_USART_Puts(USART1, "I2C device is NOT connected!\n");
-	} else {
-		TM_USART_Puts(USART1, "I2C device is connected\n");
-	}
-
-	/* Check who I am */
-	uint8_t whoiam = TM_I2C_Read(I2C1, MMA_ADDRESS, MMA_WHO_AM_I);
-	if (whoiam != MMA_I_AM) {
-		/* Return error */
-		TM_USART_Puts(USART1, "I2C device is Unknown!\n");
-		TM_USART_Putc(USART1, whoiam);
-	} else {
-		TM_USART_Puts(USART1, "I2C device is an MMA845x\n");
-	}
-
-    /* Put string to USART */
-    TM_USART_Puts(USART1, "Initialization complete\n");
-    TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
+    /* Format data */
+	//sprintf(str, "1. Accelerometer\t- X:%d\t- Y:%d\t- Z:%d\n",100,51,10);
+    MMA845X_ReadAcceleration(accelData);
 
 	// Main loop
     while (1) {
-       for(i=0;i<500000;i++) {}
-       TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
+    	MMA845X_ReadAcceleration(accelData);
+    	if (TM_DELAY_Time() >= 100) {
+			/* Reset time */
+			TM_DELAY_SetTime(0);
+			// Read acceleration data
+			//MMA845X_ReadAcceleration(accelData);
+			// Send bytes over USART
+			//TM_USART_Putc(USART1, accelData[0] >> 8);
+			//TM_USART_Putc(USART1, accelData[0]);
+			// Toggle Green led
+			TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
+    	}
+
     }
 }
