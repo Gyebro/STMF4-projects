@@ -32,7 +32,12 @@
 #define MMA_RANGE_4G	0x01
 #define MMA_RANGE_8G	0x10
 
-/* Initialize the MMA845X on I2C1 SCL:PB6 and SDA:PB7 */
+/* I2C connection */
+// I2C1 SCL:PB6 and SDA:PB7
+// I2C3 SCL:PA8 and SDA:PC9
+#define I2CMMA I2C3
+
+/* Initialize the MMA845X on I2CX */
 uint8_t MMA845X_Initialize(uint8_t MMA_RANGE);
 
 /* Read the raw acceleration register values*/

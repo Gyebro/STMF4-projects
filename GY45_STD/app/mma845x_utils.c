@@ -2,43 +2,45 @@
 
 /* Implementation of public functions */
 
+
+
 uint8_t MMA845X_Initialize(uint8_t MMA_RANGE) {
-	/* Init I2C1 -- SCL: PB6 and SDA: PB7 */
-    TM_I2C_Init(I2C1, TM_I2C_PinsPack_1, 100000);
+	/* Init I2CMMA -- SCL: PB6 and SDA: PB7 */
+    TM_I2C_Init(I2CMMA, TM_I2C_PinsPack_1, 100000);
     /* Check if device is connected */
-	if (!TM_I2C_IsDeviceConnected(I2C1, MMA_ADDRESS)) {
+	if (!TM_I2C_IsDeviceConnected(I2CMMA, MMA_ADDRESS)) {
 		return MMA_ERROR_NOT_CONNECTED;
 	}
 	/* Check who I am */
-	if (TM_I2C_Read(I2C1, MMA_ADDRESS, MMA_WHO_AM_I) != MMA_I_AM) {
+	if (TM_I2C_Read(I2CMMA, MMA_ADDRESS, MMA_WHO_AM_I) != MMA_I_AM) {
 		return MMA_ERROR_NOT_RECOGNIZED;
 	}
 	/* Standby: Get ctrl register value */
-	uint8_t ctrl = TM_I2C_Read(I2C1, MMA_ADDRESS, MMA_CTRL_REG1);
+	uint8_t ctrl = TM_I2C_Read(I2CMMA, MMA_ADDRESS, MMA_CTRL_REG1);
 	/* Clear the active bit to go into standby */
-	TM_I2C_Write(I2C1, MMA_ADDRESS, MMA_CTRL_REG1, ctrl & ~(0x01));
+	TM_I2C_Write(I2CMMA, MMA_ADDRESS, MMA_CTRL_REG1, ctrl & ~(0x01));
 
 	/* Write full scale range to DATA_CFG register */
-	TM_I2C_Write(I2C1, MMA_ADDRESS, MMA_XYZ_DATA_CFG, MMA_RANGE);
+	TM_I2C_Write(I2CMMA, MMA_ADDRESS, MMA_XYZ_DATA_CFG, MMA_RANGE);
 
 	/* Activate: Get ctrl register again */
-	ctrl = TM_I2C_Read(I2C1, MMA_ADDRESS, MMA_CTRL_REG1);
+	ctrl = TM_I2C_Read(I2CMMA, MMA_ADDRESS, MMA_CTRL_REG1);
 	/* Set the active bit to start measurement */
-	TM_I2C_Write(I2C1, MMA_ADDRESS, MMA_CTRL_REG1, ctrl | 0x01);
+	TM_I2C_Write(I2CMMA, MMA_ADDRESS, MMA_CTRL_REG1, ctrl | 0x01);
 
 	return MMA_OK;
 }
 
 void MMA845X_ReadRawData(uint8_t* rawData) {
 	// Read from MMA845X
-	TM_I2C_ReadMulti(I2C1, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
+	TM_I2C_ReadMulti(I2CMMA, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
 }
 
 void MMA845X_ReadAcceleration(int* destination) {
 	// Raw x,y,z register data
 	uint8_t rawData[6];
 	// Read from MMA845X
-	TM_I2C_ReadMulti(I2C1, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
+	TM_I2C_ReadMulti(I2CMMA, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
 
 	// Loop to calculate 14-bit ADC and G value for each axis
 	volatile int i;
