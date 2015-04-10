@@ -23,9 +23,8 @@
 #include "tm_stm32f4_gpio.h"
 #include "tm_stm32f4_usart.h"
 #include "tm_stm32f4_delay.h"
-
-/* STD C libs */
-//#include <stdio.h>
+#include "tm_stm32f4_ili9341_ltdc.h"
+#include "tm_stm32f4_fonts.h"
 
 /* MMA845X utility */
 #include "mma845x_utils.h"
@@ -43,11 +42,16 @@ void printRawAccelUSART1(uint8_t* raw) {
 	mini_snprintf(str,100,"X:%x %x\tY:%x %x\tZ:%x %x\n",raw[0],raw[1],raw[2],raw[3],raw[4],raw[5]);
 	TM_USART_Puts(USART1, str);
 }
+/* Print acceleration value to LCD */
+static char lcdstr[120];
+void printAccelLCD(int* accelData) {
+	mini_snprintf(lcdstr,100,"X:%d___\nY:%d___\nZ:%d___\n",accelData[0],accelData[1],accelData[2]);
+	TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
+}
 
 int main(void) {
 
     int accelData[3];
-    //uint8_t rawAccel[6];
 
     /* Initialize system */
     SystemInit();
@@ -74,21 +78,25 @@ int main(void) {
     	TM_USART_Putc(USART1, '\n');
     }
 
+    /* Initialize Display */
+	TM_ILI9341_Init();
+	TM_ILI9341_Rotate(TM_ILI9341_Orientation_Portrait_1);
+	TM_ILI9341_SetLayer1();
+	TM_ILI9341_Fill(ILI9341_COLOR_BLACK); /* Fill data on layer 1 */
+	// Greeting text
+	TM_ILI9341_Puts(30, 30, "MMA845X demo", &TM_Font_11x18, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+
 	/* MAIN LOOP */
     while (1) {
-    	if (TM_DELAY_Time() >= 10) {
-			/* Reset time */
-			TM_DELAY_SetTime(0);
 
-			// Read and print acceleration data
-			MMA845X_ReadAcceleration(accelData);
-			printAccelUSART1(accelData);
-			/*MMA845X_ReadRawData(rawAccel);
-			printRawAccelUSART1(rawAccel);*/
+    	// Read and print acceleration data
+		MMA845X_ReadAcceleration(accelData);
+		printAccelUSART1(accelData);
+		printAccelLCD(accelData);
 
-			// Toggle Green led
-			TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
-    	}
+		// Toggle Green led
+		TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
+
 
     }
 }
