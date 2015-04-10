@@ -30,9 +30,24 @@
 /* MMA845X utility */
 #include "mma845x_utils.h"
 
+/* Other utilities */
+#include "mini-printf.h"
+
+/* Print acceleration value to USART1 */
+static char str[120];
+void printAccelUSART1(int* accelData) {
+	mini_snprintf(str,100,"%d %d %d\n",accelData[0],accelData[1],accelData[2]);
+	TM_USART_Puts(USART1, str);
+}
+void printRawAccelUSART1(uint8_t* raw) {
+	mini_snprintf(str,100,"X:%x %x\tY:%x %x\tZ:%x %x\n",raw[0],raw[1],raw[2],raw[3],raw[4],raw[5]);
+	TM_USART_Puts(USART1, str);
+}
+
 int main(void) {
-    //char str[120];
+
     int accelData[3];
+    //uint8_t rawAccel[6];
 
     /* Initialize system */
     SystemInit();
@@ -48,7 +63,7 @@ int main(void) {
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
 
     /* Initialize MMA845X */
-    uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_4G);
+    uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_2G);
     if (mma_status == MMA_OK) {
     	TM_USART_Puts(USART1, "MMA initialized\n");
     	TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
@@ -59,21 +74,18 @@ int main(void) {
     	TM_USART_Putc(USART1, '\n');
     }
 
-    /* Format data */
-	//sprintf(str, "1. Accelerometer\t- X:%d\t- Y:%d\t- Z:%d\n",100,51,10);
-    MMA845X_ReadAcceleration(accelData);
-
-	// Main loop
+	/* MAIN LOOP */
     while (1) {
-    	MMA845X_ReadAcceleration(accelData);
-    	if (TM_DELAY_Time() >= 100) {
+    	if (TM_DELAY_Time() >= 10) {
 			/* Reset time */
 			TM_DELAY_SetTime(0);
-			// Read acceleration data
-			//MMA845X_ReadAcceleration(accelData);
-			// Send bytes over USART
-			//TM_USART_Putc(USART1, accelData[0] >> 8);
-			//TM_USART_Putc(USART1, accelData[0]);
+
+			// Read and print acceleration data
+			MMA845X_ReadAcceleration(accelData);
+			printAccelUSART1(accelData);
+			/*MMA845X_ReadRawData(rawAccel);
+			printRawAccelUSART1(rawAccel);*/
+
 			// Toggle Green led
 			TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
     	}

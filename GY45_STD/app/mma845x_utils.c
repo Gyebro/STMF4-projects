@@ -29,23 +29,31 @@ uint8_t MMA845X_Initialize(uint8_t MMA_RANGE) {
 	return MMA_OK;
 }
 
+void MMA845X_ReadRawData(uint8_t* rawData) {
+	// Read from MMA845X
+	TM_I2C_ReadMulti(I2C1, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
+}
+
 void MMA845X_ReadAcceleration(int* destination) {
 	// Raw x,y,z register data
 	uint8_t rawData[6];
 	// Read from MMA845X
 	TM_I2C_ReadMulti(I2C1, MMA_ADDRESS, MMA_OUT_X_MSB, rawData, 6);
 
-	// Loop to calculate 12-bit ADC and G value for each axis
+	// Loop to calculate 14-bit ADC and G value for each axis
 	volatile int i;
 	for(i = 0; i < 3 ; i++) {
-		// Combine the two 8 bit registers into one 12-bit number
+		// Combine the two 8 bit registers into one 14-bit number
 		int gCount = (rawData[i*2] << 8) | rawData[(i*2)+1];
-		// The registers are left aligned, right align the 12-bit integer
-		gCount >>= 4;
+		// The registers are left aligned, right align the 14-bit integer
+		gCount >>= 2;
 		// If the number is negative, we have to make it so manually (no 12-bit data type)
-		if (rawData[i*2] > 0x7F) {
+		/*if (rawData[i*2] > 0x7F) {
 			gCount = ~gCount + 1;
 			gCount *= -1;  // Transform into negative 2's complement #
+		}*/
+		if (gCount > 8192) {
+			gCount = gCount-16384;
 		}
 		destination[i] = gCount; // Store in destination
 	}

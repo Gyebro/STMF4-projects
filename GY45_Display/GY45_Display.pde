@@ -6,12 +6,12 @@ float axprev = 0;
 float ayprev = 0;
 float azprev = 0;
 float ax, ay, az;
-float scl = 0.3;
+float scl = 1.0f/8192.0f;
  
 void setup () {
  // set the window size:
  size(1280, 720);        
- myPort = new Serial(this, "COM8", 9600);
+ myPort = new Serial(this, "COM5", 115200);
  myPort.bufferUntil('\n');
  background(0);
 }

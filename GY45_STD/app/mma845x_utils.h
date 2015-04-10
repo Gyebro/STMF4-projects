@@ -35,6 +35,9 @@
 /* Initialize the MMA845X on I2C1 SCL:PB6 and SDA:PB7 */
 uint8_t MMA845X_Initialize(uint8_t MMA_RANGE);
 
+/* Read the raw acceleration register values*/
+void MMA845X_ReadRawData(uint8_t* rawData);
+
 /* Read the acceleration values and put them into the destination buffer */
 void MMA845X_ReadAcceleration(int * destination);
 
