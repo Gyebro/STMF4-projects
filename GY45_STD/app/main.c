@@ -34,20 +34,35 @@
 /* Other utilities */
 #include "mini-printf.h"
 
-/* Print acceleration value to USART1 */
+/* Comment or Uncomment the following lines to enable/disable UART/VCP */
+//#define ENABLE_USART
+#define ENABLE_VCP
+
+/* Send message to PC */
+void SendString(char* message) {
+#ifdef ENABLE_USART
+	TM_USART_Puts(USART1, message);
+#endif
+#ifdef ENABLE_VCP
+	TM_USB_VCP_Puts(message);
+#endif
+}
+void SendChar(char message) {
+#ifdef ENABLE_USART
+	TM_USART_Putc(USART1, message);
+#endif
+#ifdef ENABLE_VCP
+	TM_USB_VCP_Putc(message);
+#endif
+}
+
+/* Print acceleration value to COMM */
 static char str[120];
-void printAccelUSART1(int* accelData) {
+void printAccel(int* accelData) {
 	mini_snprintf(str,100,"%d %d %d\n",accelData[0],accelData[1],accelData[2]);
-	TM_USART_Puts(USART1, str);
+	SendString(str);
 }
-void printAccelVCP(int* accelData) {
-	mini_snprintf(str,100,"%d %d %d\n",accelData[0],accelData[1],accelData[2]);
-	TM_USB_VCP_Puts(str);
-}
-void printRawAccelUSART1(uint8_t* raw) {
-	mini_snprintf(str,100,"X:%x %x\tY:%x %x\tZ:%x %x\n",raw[0],raw[1],raw[2],raw[3],raw[4],raw[5]);
-	TM_USART_Puts(USART1, str);
-}
+
 /* Print acceleration value to LCD */
 static char lcdstr[120];
 void printAccelLCD(int* accelData) {
@@ -69,30 +84,30 @@ int main(void) {
     TM_GPIO_Init(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_NOPULL, TM_GPIO_Speed_Fast);
     TM_GPIO_SetPinValue(GPIOG, GPIO_PIN_14, 1); // Red: ON
 
+#ifdef ENABLE_USART
     /* Initialize USART1 at 115200 baud, TX: PA10, RX: PA9 */
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
+#endif
 
+#ifdef ENABLE_VCP
     /* Initialize USB Virtual Comm Port */
     TM_USB_VCP_Init();
 
-    TM_USB_VCP_Result status = TM_USB_VCP_GetStatus();
-
     if (TM_USB_VCP_GetStatus() == TM_USB_VCP_CONNECTED) {
-    	TM_USART_Puts(USART1, "USB VCP initialized\n");
-    } else {
-    	TM_USART_Puts(USART1, "USB VCP init failed!\n");
+    	SendString("USB VCP initialized and connected\n");
     }
+#endif
 
     /* Initialize MMA845X */
     uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_2G);
     if (mma_status == MMA_OK) {
-    	TM_USART_Puts(USART1, "MMA initialized\n");
+    	SendString("MMA initialized\n");
     	TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
     } else {
-    	TM_USART_Puts(USART1, "MMA initialization failed, error code: ");
+    	SendString("MMA initialization failed, error code: ");
     	// Add 48 to the byte value to have character representation, (48 = '0')
-    	TM_USART_Putc(USART1, mma_status+48);
-    	TM_USART_Putc(USART1, '\n');
+    	SendChar('0'+mma_status);
+    	SendChar('\n');
     }
 
     /* Initialize Display */
@@ -108,13 +123,11 @@ int main(void) {
 
     	// Read and print acceleration data
 		MMA845X_ReadAcceleration(accelData);
-		printAccelUSART1(accelData);
-		printAccelVCP(accelData);
+		printAccel(accelData);
 		printAccelLCD(accelData);
 
 		// Toggle Green led
 		TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
-
 
     }
 }
