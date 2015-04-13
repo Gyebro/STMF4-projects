@@ -26,6 +26,8 @@
 #include "tm_stm32f4_ili9341_ltdc.h"
 #include "tm_stm32f4_fonts.h"
 
+#include "tm_stm32f4_usb_vcp.h"
+
 /* MMA845X utility */
 #include "mma845x_utils.h"
 
@@ -37,6 +39,10 @@ static char str[120];
 void printAccelUSART1(int* accelData) {
 	mini_snprintf(str,100,"%d %d %d\n",accelData[0],accelData[1],accelData[2]);
 	TM_USART_Puts(USART1, str);
+}
+void printAccelVCP(int* accelData) {
+	mini_snprintf(str,100,"%d %d %d\n",accelData[0],accelData[1],accelData[2]);
+	TM_USB_VCP_Puts(str);
 }
 void printRawAccelUSART1(uint8_t* raw) {
 	mini_snprintf(str,100,"X:%x %x\tY:%x %x\tZ:%x %x\n",raw[0],raw[1],raw[2],raw[3],raw[4],raw[5]);
@@ -66,6 +72,17 @@ int main(void) {
     /* Initialize USART1 at 115200 baud, TX: PA10, RX: PA9 */
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
 
+    /* Initialize USB Virtual Comm Port */
+    TM_USB_VCP_Init();
+
+    TM_USB_VCP_Result status = TM_USB_VCP_GetStatus();
+
+    if (TM_USB_VCP_GetStatus() == TM_USB_VCP_CONNECTED) {
+    	TM_USART_Puts(USART1, "USB VCP initialized\n");
+    } else {
+    	TM_USART_Puts(USART1, "USB VCP init failed!\n");
+    }
+
     /* Initialize MMA845X */
     uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_2G);
     if (mma_status == MMA_OK) {
@@ -92,6 +109,7 @@ int main(void) {
     	// Read and print acceleration data
 		MMA845X_ReadAcceleration(accelData);
 		printAccelUSART1(accelData);
+		printAccelVCP(accelData);
 		printAccelLCD(accelData);
 
 		// Toggle Green led
