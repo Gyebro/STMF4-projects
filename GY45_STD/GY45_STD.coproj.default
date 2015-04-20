@@ -158,10 +158,10 @@
     <File name="tm/usb_cdc_device/usbd_cdc_vcp.c" path="tm/usb_cdc_device/usbd_cdc_vcp.c" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_dbgmcu.h" path="cmsis_lib/include/stm32f4xx_dbgmcu.h" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_cryp_des.c" path="cmsis_lib/source/stm32f4xx_cryp_des.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_dbgmcu.c" path="cmsis_lib/source/stm32f4xx_dbgmcu.c" type="1"/>
     <File name="tm/tm_stm32f4_sdram.h" path="tm/tm_stm32f4_sdram.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_dbgmcu.c" path="cmsis_lib/source/stm32f4xx_dbgmcu.c" type="1"/>
     <File name="tm/tm_stm32f4_delay.h" path="tm/tm_stm32f4_delay.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_cryp_des.c" path="cmsis_lib/source/stm32f4xx_cryp_des.c" type="1"/>
     <File name="mma845x_utils.h" path="app/mma845x_utils.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_crc.c" path="cmsis_lib/source/stm32f4xx_crc.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
@@ -187,11 +187,11 @@
     <File name="cmsis_lib/source/stm32f4xx_sdio.c" path="cmsis_lib/source/stm32f4xx_sdio.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_sdio.h" path="cmsis_lib/include/stm32f4xx_sdio.h" type="1"/>
     <File name="tm/usb_cdc_device/usb_bsp.c" path="tm/usb_cdc_device/usb_bsp.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_cryp_tdes.c" path="cmsis_lib/source/stm32f4xx_cryp_tdes.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_exti.h" path="cmsis_lib/include/stm32f4xx_exti.h" type="1"/>
     <File name="tm/usb_cdc_device/usbd_cdc_core.c" path="tm/usb_cdc_device/usbd_cdc_core.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_cryp_tdes.c" path="cmsis_lib/source/stm32f4xx_cryp_tdes.c" type="1"/>
     <File name="tm/usb_cdc_device/usbd_usr.c" path="tm/usb_cdc_device/usbd_usr.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_exti.h" path="cmsis_lib/include/stm32f4xx_exti.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_hash_md5.c" path="cmsis_lib/source/stm32f4xx_hash_md5.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>
     <File name="tm/usb_cdc_device/usb_conf.h" path="tm/usb_cdc_device/usb_conf.h" type="1"/>
