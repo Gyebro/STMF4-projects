@@ -23,6 +23,9 @@
 #include "tm_stm32f4_gpio.h"
 #include "tm_stm32f4_usart.h"
 #include "tm_stm32f4_delay.h"
+#include "tm_stm32f4_adc.h"
+#include "tm_stm32f4_dac.h"
+#include "tm_stm32f4_pwm.h"
 #include "tm_stm32f4_ili9341_ltdc.h"
 #include "tm_stm32f4_fonts.h"
 
@@ -36,7 +39,11 @@
 
 /* Comment or Uncomment the following lines to enable/disable UART/VCP */
 //#define ENABLE_USART
-#define ENABLE_VCP
+//#define ENABLE_VCP
+//#define DISABLE_ACCELEROMETER
+
+#define CURRENT_ADC ADC1
+#define CURRENT_CH ADC_Channel_0
 
 /* Send message to PC */
 void SendString(char* message) {
@@ -70,9 +77,48 @@ void printAccelLCD(int* accelData) {
 	TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
 }
 
+size_t xpix = 1;
+int axprev = 0, ayprev = 0, azprev = 0;
+int strainprev = 0;
+void printGraphsLCD(int* accelData, int analogIn) {
+	// Only draw if it is time to do so
+	//if (TM_DELAY_Time() > 1) {
+		mini_snprintf(lcdstr,100,"A:%d___",analogIn);
+		TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
+
+		// Draw 3 accel graphs on top half of the screen
+		int ax = 80 + accelData[0]*40/4096;
+		int ay = 80 + accelData[1]*40/4096;
+		int az = 80 + accelData[2]*40/4096;
+		TM_ILI9341_DrawLine(xpix,80,xpix+1,80,ILI9341_COLOR_GRAY);
+		TM_ILI9341_DrawLine(xpix,axprev,xpix+1,ax,ILI9341_COLOR_RED);
+		TM_ILI9341_DrawLine(xpix,ayprev,xpix+1,ay,ILI9341_COLOR_GREEN);
+		TM_ILI9341_DrawLine(xpix,azprev,xpix+1,az,ILI9341_COLOR_BLUE);
+		axprev = ax;
+		ayprev = ay;
+		azprev = az;
+		// Draw vertical line
+		TM_ILI9341_DrawLine(1,160,240,160,ILI9341_COLOR_WHITE);
+		// Draw strain graph on bottom half
+		int strain = 180 + analogIn*140/4096;
+		TM_ILI9341_DrawLine(xpix,strainprev,xpix+1,strain,ILI9341_COLOR_CYAN);
+		strainprev = strain;
+		// Move x coord
+		xpix++;
+		if(xpix > 239) {
+			xpix = 1;
+			// Clear whole screen
+			TM_ILI9341_Fill(ILI9341_COLOR_BLACK);
+		}
+		// Reset timer
+	//	TM_DELAY_SetTime(0);
+	//}
+}
+
 int main(void) {
 
     int accelData[3];
+    int analogIn = 0;
 
     /* Initialize system */
     SystemInit();
@@ -84,6 +130,8 @@ int main(void) {
     TM_GPIO_Init(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_NOPULL, TM_GPIO_Speed_Fast);
     TM_GPIO_SetPinValue(GPIOG, GPIO_PIN_14, 1); // Red: ON
 
+    /* */
+
 #ifdef ENABLE_USART
     /* Initialize USART1 at 115200 baud, TX: PA10, RX: PA9 */
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
@@ -91,18 +139,22 @@ int main(void) {
 
 #ifdef ENABLE_VCP
     /* Initialize USB Virtual Comm Port */
-    TM_USB_VCP_Init();
 
-    if (TM_USB_VCP_GetStatus() == TM_USB_VCP_CONNECTED) {
-    	SendString("USB VCP initialized and connected\n");
+    TM_USB_VCP_Result status = TM_USB_VCP_NOT_CONNECTED;
+    while (TM_USB_VCP_GetStatus() != TM_USB_VCP_CONNECTED) {
+    	TM_USB_VCP_Init();
+    	TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14);
+    	Delay(500000);
     }
+    SendString("USB VCP initialized and connected\n");
+    TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
+
 #endif
 
     /* Initialize MMA845X */
-    uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_2G);
+    uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_4G);
     if (mma_status == MMA_OK) {
     	SendString("MMA initialized\n");
-    	TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_14 | GPIO_PIN_13); // Red: OFF, Gr: ON
     } else {
     	SendString("MMA initialization failed, error code: ");
     	// Add 48 to the byte value to have character representation, (48 = '0')
@@ -110,21 +162,51 @@ int main(void) {
     	SendChar('\n');
     }
 
+
     /* Initialize Display */
 	TM_ILI9341_Init();
 	TM_ILI9341_Rotate(TM_ILI9341_Orientation_Portrait_1);
 	TM_ILI9341_SetLayer1();
 	TM_ILI9341_Fill(ILI9341_COLOR_BLACK); /* Fill data on layer 1 */
+
 	// Greeting text
-	TM_ILI9341_Puts(30, 30, "MMA845X demo", &TM_Font_11x18, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+	//TM_ILI9341_Puts(30, 30, "MMA845X demo", &TM_Font_11x18, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+
+	/* Initialize ADC1 on channel 3, this is pin PF7*/
+	TM_ADC_Init(CURRENT_ADC, CURRENT_CH);
+
+	/* Initialize PE2 and PE3 for digital output (Motor direction) */
+    TM_GPIO_Init(GPIOE, GPIO_PIN_2 | GPIO_PIN_3, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_NOPULL, TM_GPIO_Speed_Fast);
+    // Set them to HIGH/LOW
+    TM_GPIO_SetPinHigh(GPIOE, GPIO_PIN_3);
+    TM_GPIO_SetPinLow(GPIOE, GPIO_PIN_2);
+
+    /* Set up PE5 (in front of PE4) for PWM (TIM9 CH1 PP2) (Motor speed control) */
+    TM_PWM_TIM_t TIM9_Data;
+    // Set PWM to 1kHz frequency on timer TIM4, 1 kHz = 1ms = 1000us
+	TM_PWM_InitTimer(TIM9, &TIM9_Data, 1000);
+	// Initialize PWM on TIM9, Channel 1 and PinsPack 2 = PE5
+	TM_PWM_InitChannel(&TIM9_Data, TM_PWM_Channel_1, TM_PWM_PinsPack_2);
+	// Set channel 1 value, 50% duty cycle
+	TM_PWM_SetChannelPercent(&TIM9_Data, TM_PWM_Channel_1, 100);
+
+	/* Initialize DAC channel 2, pin PA5 */
+	//TM_DAC_Init(TM_DAC2);
+	/* Set 12bit analog value of 2047/4096 * 3.3V */
+	//TM_DAC_SetValue(TM_DAC2, 4096);
 
 	/* MAIN LOOP */
     while (1) {
 
-    	// Read and print acceleration data
+    	// Read acceleration data
 		MMA845X_ReadAcceleration(accelData);
-		printAccel(accelData);
-		printAccelLCD(accelData);
+
+		// Read analog input
+		analogIn = TM_ADC_Read(CURRENT_ADC, CURRENT_CH);
+
+		//printAccel(accelData);
+		//printAccelLCD(accelData);
+		printGraphsLCD(accelData, analogIn);
 
 		// Toggle Green led
 		TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
