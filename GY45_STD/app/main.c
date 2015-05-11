@@ -5,12 +5,22 @@
  * GY45 ----------------- STM32F429-DISCO
  * V_IN (red) ----------- 3V (right)
  * GND (brown) ---------- GND
- * SCL (orange) --------- PB6
- * SDA (yellow) --------- PB7
+ * SCL (orange) --------- PA8
+ * SDA (yellow) --------- PC9
  *
  * CP210X ----- STM32F429-DISCO
  * RX --------- PA9
  * TX --------- PA10
+ *
+ * Half-bridge
+ * (RED)	5V
+ * (BRO)	GND
+ * (WHITE)	PA0
+ *
+ * Motor control
+ * IN1 (GREEN)	PE2
+ * IN2 (BLUE)	PE3
+ * ENA (ORANG)	PE5
  *
  */
 
@@ -130,8 +140,6 @@ int main(void) {
     TM_GPIO_Init(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_NOPULL, TM_GPIO_Speed_Fast);
     TM_GPIO_SetPinValue(GPIOG, GPIO_PIN_14, 1); // Red: ON
 
-    /* */
-
 #ifdef ENABLE_USART
     /* Initialize USART1 at 115200 baud, TX: PA10, RX: PA9 */
     TM_USART_Init(USART1, TM_USART_PinsPack_1, 115200);
@@ -162,17 +170,13 @@ int main(void) {
     	SendChar('\n');
     }
 
-
     /* Initialize Display */
 	TM_ILI9341_Init();
 	TM_ILI9341_Rotate(TM_ILI9341_Orientation_Portrait_1);
 	TM_ILI9341_SetLayer1();
 	TM_ILI9341_Fill(ILI9341_COLOR_BLACK); /* Fill data on layer 1 */
 
-	// Greeting text
-	//TM_ILI9341_Puts(30, 30, "MMA845X demo", &TM_Font_11x18, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
-
-	/* Initialize ADC1 on channel 3, this is pin PF7*/
+	/* Initialize ADC1 */
 	TM_ADC_Init(CURRENT_ADC, CURRENT_CH);
 
 	/* Initialize PE2 and PE3 for digital output (Motor direction) */
