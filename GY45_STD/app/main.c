@@ -34,7 +34,8 @@
 #include "tm_stm32f4_usart.h"
 #include "tm_stm32f4_delay.h"
 #include "tm_stm32f4_adc.h"
-#include "tm_stm32f4_dac.h"
+//#include "tm_stm32f4_dac.h"
+#include "tm_stm32f4_dac_signal.h"
 #include "tm_stm32f4_pwm.h"
 #include "tm_stm32f4_ili9341_ltdc.h"
 #include "tm_stm32f4_fonts.h"
@@ -159,6 +160,8 @@ int main(void) {
 
 #endif
 
+#ifdef ENABLE_MMA
+
     /* Initialize MMA845X */
     uint8_t mma_status = MMA845X_Initialize(MMA_RANGE_4G);
     if (mma_status == MMA_OK) {
@@ -169,6 +172,8 @@ int main(void) {
     	SendChar('0'+mma_status);
     	SendChar('\n');
     }
+
+#endif
 
     /* Initialize Display */
 	TM_ILI9341_Init();
@@ -192,24 +197,31 @@ int main(void) {
 	// Initialize PWM on TIM9, Channel 1 and PinsPack 2 = PE5
 	TM_PWM_InitChannel(&TIM9_Data, TM_PWM_Channel_1, TM_PWM_PinsPack_2);
 	// Set channel 1 value, 50% duty cycle
-	TM_PWM_SetChannelPercent(&TIM9_Data, TM_PWM_Channel_1, 100);
+	TM_PWM_SetChannelPercent(&TIM9_Data, TM_PWM_Channel_1, 10);
 
-	/* Initialize DAC channel 2, pin PA5 */
+	/* Initialize DAC channel 2, pin PA5 (Shaker control) */
 	//TM_DAC_Init(TM_DAC2);
 	/* Set 12bit analog value of 2047/4096 * 3.3V */
 	//TM_DAC_SetValue(TM_DAC2, 4096);
+
+	// DAC PIN PA5
+	/* Initialize DAC1, use TIM4 for signal generation */
+	TM_DAC_SIGNAL_Init(TM_DAC2, TIM4);
+	/* Output predefined triangle signal with frequency of 5kHz */
+	TM_DAC_SIGNAL_SetSignal(TM_DAC2, TM_DAC_SIGNAL_Signal_Sinus, 20);
 
 	/* MAIN LOOP */
     while (1) {
 
     	// Read acceleration data
+#ifdef ENABLE_MMA
 		MMA845X_ReadAcceleration(accelData);
+#endif
 
 		// Read analog input
 		analogIn = TM_ADC_Read(CURRENT_ADC, CURRENT_CH);
 
-		//printAccel(accelData);
-		//printAccelLCD(accelData);
+		// Print graphs
 		printGraphsLCD(accelData, analogIn);
 
 		// Toggle Green led
