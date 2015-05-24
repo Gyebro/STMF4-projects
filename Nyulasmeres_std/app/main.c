@@ -126,9 +126,13 @@ void printGraphsLCD(int* accelData, int analogIn) {
 	//}
 }
 
+#define BUFFER 200
+
 int main(void) {
 
     int accelData[3];
+    int analogData[BUFFER];
+    int a = 0;
     int analogIn = 0;
 
     /* Initialize system */
@@ -210,6 +214,8 @@ int main(void) {
 	/* Output predefined triangle signal with frequency of 5kHz */
 	TM_DAC_SIGNAL_SetSignal(TM_DAC2, TM_DAC_SIGNAL_Signal_Sinus, 50);
 
+	int i=0;
+
 	/* MAIN LOOP */
     while (1) {
 
@@ -219,7 +225,14 @@ int main(void) {
 #endif
 
 		// Read analog input
-		analogIn = TM_ADC_Read(CURRENT_ADC, CURRENT_CH);
+		analogData[a] = TM_ADC_Read(CURRENT_ADC, CURRENT_CH);
+		a++;
+		if(a==BUFFER) {a=0;}
+
+		// Analog average
+		analogIn=0;
+		for(i=0;i<BUFFER;i++){analogIn+=analogData[i];}
+		analogIn/=BUFFER;
 
 		// Print graphs
 		printGraphsLCD(accelData, analogIn);
