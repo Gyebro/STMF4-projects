@@ -91,10 +91,10 @@ void printAccelLCD(int* accelData) {
 size_t xpix = 1;
 int axprev = 0, ayprev = 0, azprev = 0;
 int strainprev = 0;
-void printGraphsLCD(int* accelData, int analogIn) {
+void printGraphsLCD(int* accelData, int analogIn, int analogAvg) {
 	// Only draw if it is time to do so
 	//if (TM_DELAY_Time() > 1) {
-		mini_snprintf(lcdstr,100,"A:%d___",analogIn);
+		mini_snprintf(lcdstr,100,"A:%d___",analogAvg);
 		TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
 
 		// Draw 3 accel graphs on top half of the screen
@@ -235,7 +235,7 @@ int main(void) {
 		analogIn/=BUFFER;
 
 		// Print graphs
-		printGraphsLCD(accelData, analogIn);
+		printGraphsLCD(accelData, analogData[a], analogIn);
 
 		// Toggle Green led
 		TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
