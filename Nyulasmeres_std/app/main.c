@@ -53,8 +53,11 @@
 //#define ENABLE_VCP
 //#define DISABLE_ACCELEROMETER
 
-#define CURRENT_ADC ADC1
-#define CURRENT_CH ADC_Channel_0
+//#define ENABLE_PWM
+//#define ENABLE_DAC
+
+#define CURRENT_ADC ADC3
+#define CURRENT_CH ADC_Channel_13
 
 /* Send message to PC */
 void SendString(char* message) {
@@ -91,11 +94,15 @@ void printAccelLCD(int* accelData) {
 size_t xpix = 1;
 int axprev = 0, ayprev = 0, azprev = 0;
 int strainprev = 0;
-void printGraphsLCD(int* accelData, int analogIn, int analogAvg) {
+void printGraphsLCD(int* accelData, int analogIn, int analogAvg, int aMin, int aMax) {
 	// Only draw if it is time to do so
-	//if (TM_DELAY_Time() > 1) {
-		mini_snprintf(lcdstr,100,"A:%d___",analogAvg);
-		TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
+	//if (TM_DELAY_Time() > 10) {
+		mini_snprintf(lcdstr,100,"A:%d___",analogIn);
+		TM_ILI9341_Puts(30, 30, lcdstr, &TM_Font_11x18, ILI9341_COLOR_YELLOW, ILI9341_COLOR_BLACK);
+		mini_snprintf(lcdstr,100,"Amin:%d___",aMin);
+		TM_ILI9341_Puts(30, 60, lcdstr, &TM_Font_11x18, ILI9341_COLOR_GREEN, ILI9341_COLOR_BLACK);
+		mini_snprintf(lcdstr,100,"Amax:%d___",aMax);
+		TM_ILI9341_Puts(30, 90, lcdstr, &TM_Font_11x18, ILI9341_COLOR_RED, ILI9341_COLOR_BLACK);
 
 		// Draw 3 accel graphs on top half of the screen
 		int ax = 80 + accelData[0]*40/4096;
@@ -111,35 +118,38 @@ void printGraphsLCD(int* accelData, int analogIn, int analogAvg) {
 		// Draw vertical line
 		TM_ILI9341_DrawLine(1,160,240,160,ILI9341_COLOR_WHITE);
 		// Draw strain graph on bottom half
-		int strain = 180 + analogIn*140/4096;
-		TM_ILI9341_DrawLine(xpix,strainprev,xpix+1,strain,ILI9341_COLOR_CYAN);
+		int strain = 180 + (analogIn-1900)*2000/2048;
+		TM_ILI9341_DrawLine(xpix,strainprev,xpix+3,strainprev,ILI9341_COLOR_CYAN);
+		TM_ILI9341_DrawLine(xpix+3,strainprev,xpix+3,strain,ILI9341_COLOR_CYAN);
 		strainprev = strain;
 		// Move x coord
-		xpix++;
+		xpix+=4;
 		if(xpix > 239) {
 			xpix = 1;
 			// Clear whole screen
 			TM_ILI9341_Fill(ILI9341_COLOR_BLACK);
 		}
 		// Reset timer
-	//	TM_DELAY_SetTime(0);
-	//}
+	//	TM_DELAY_SetTime(0);}
 }
 
-#define BUFFER 200
+#define BUFFER 400
 
 int main(void) {
 
     int accelData[3];
     int analogData[BUFFER];
+    int i=0;
+    for(i=0;i<BUFFER;i++){ analogData[i]=0;	}
     int a = 0;
     int analogIn = 0;
+    int analogMin, analogMax;
 
     /* Initialize system */
     SystemInit();
 
     /* Initialize delay */
-    TM_DELAY_Init();
+    //TM_DELAY_Init();
 
     /* Initialize PG13 (GREEN LED) and PG14 (RED LED) */
     TM_GPIO_Init(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_NOPULL, TM_GPIO_Speed_Fast);
@@ -194,6 +204,7 @@ int main(void) {
     TM_GPIO_SetPinHigh(GPIOE, GPIO_PIN_3);
     TM_GPIO_SetPinLow(GPIOE, GPIO_PIN_2);
 
+#ifdef ENABLE_PWM
     /* Set up PE5 (in front of PE4) for PWM (TIM9 CH1 PP2) (Motor speed control) */
     TM_PWM_TIM_t TIM9_Data;
     // Set PWM to 1kHz frequency on timer TIM4, 1 kHz = 1ms = 1000us
@@ -202,19 +213,20 @@ int main(void) {
 	TM_PWM_InitChannel(&TIM9_Data, TM_PWM_Channel_1, TM_PWM_PinsPack_2);
 	// Set channel 1 value, 50% duty cycle
 	TM_PWM_SetChannelPercent(&TIM9_Data, TM_PWM_Channel_1, 50);
+#endif
 
 	/* Initialize DAC channel 2, pin PA5 (Shaker control) */
 	//TM_DAC_Init(TM_DAC2);
 	/* Set 12bit analog value of 2047/4096 * 3.3V */
 	//TM_DAC_SetValue(TM_DAC2, 4096);
 
+#ifdef ENABLE_DAC
 	// DAC PIN PA5
 	/* Initialize DAC1, use TIM4 for signal generation */
 	TM_DAC_SIGNAL_Init(TM_DAC2, TIM4);
 	/* Output predefined triangle signal with frequency of 5kHz */
 	TM_DAC_SIGNAL_SetSignal(TM_DAC2, TM_DAC_SIGNAL_Signal_Sinus, 50);
-
-	int i=0;
+#endif
 
 	/* MAIN LOOP */
     while (1) {
@@ -231,11 +243,17 @@ int main(void) {
 
 		// Analog average
 		analogIn=0;
-		for(i=0;i<BUFFER;i++){analogIn+=analogData[i];}
+		analogMax=0;
+		analogMin=4096;
+		for(i=0;i<BUFFER;i++){
+			if(analogData[i] > analogMax) { analogMax = analogData[i]; }
+			if(analogData[i] < analogMin) { analogMin = analogData[i]; }
+			analogIn+=analogData[i];
+		}
 		analogIn/=BUFFER;
 
 		// Print graphs
-		printGraphsLCD(accelData, analogData[a], analogIn);
+		printGraphsLCD(accelData, analogData[a], analogIn, analogMin, analogMax);
 
 		// Toggle Green led
 		TM_GPIO_TogglePinValue(GPIOG, GPIO_PIN_13);
